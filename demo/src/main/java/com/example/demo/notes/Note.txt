@@ -1,0 +1,30 @@
+CONSTRUCTOR INJECTION :
+
+    Dependencies are provided through a class constructor.
+    Dependencies can be marked as final, ensuring they are immutable and set only once.
+    Easier to write unit tests as dependencies are clearly stated and can be mocked or stubbed.
+    The class explicitly declares its dependencies through its constructor, making the class easier to understand and maintain.
+    It ensures that all required dependencies are provided, as the object cannot be instantiated without them.
+
+    If a class has many dependencies, the constructor can become long and complex.
+
+    When using constructor injection, the dependency injection framework typically instantiates the class by calling its constructor and passing in the required dependencies. The instantiation and dependency injection are straightforward and occur at the time the object is created. the framework creates an instance of MyClass by calling its constructor and providing an instance of MyDependency.
+    dependency injection framework (such as Spring, Guice, etc.) will instantiate the dependencies first and then pass them into the constructor of the dependent class.
+    framework first resolves the dependencies needed by the class. It then calls the constructor of the class with the resolved dependencies as arguments.
+    If MyClass is managed by a DI framework, the framework will create an instance of MyDependency and pass it to the constructor of MyClass when creating an instance of MyClass.
+    also avoid null pointer exception.
+
+FIELD INJECTION :
+
+    Dependencies are provided directly into the fields of a class, often using annotations (e.g., @Autowired in Spring).
+    Code can look cleaner and less cluttered without a complex constructor.
+    It's quick and easy to set up, especially for small projects or simple classes.
+    Fields cannot be marked as final, potentially allowing them to be changed after object creation.
+    More challenging to write unit tests, as it might require reflection to inject mocks or stubs.
+    Field injection can lead to optional dependencies being injected without being clearly defined, which can lead to null pointer exceptions if the dependency is not provided.
+    The framework scans the class for fields annotated with @Autowired (or similar annotations) using the reflection API. It identifies these fields and then sets their values.
+    Using reflection, the framework sets the value of these fields. This is done by making the field accessible and then injecting the required dependency.(Code present inside the Injector)
+
+    The framework first creates an instance of the class, typically using a no-argument constructor. It then scans the class for fields annotated with injection annotations (e.g., @Autowired in Spring). Using reflection, it sets the fields with the resolved dependencies.
+
+    MORE CHANCES OF CIRCULAR DEPENDENCY AS COMPARED TO CONSTRUCTOR DEPENDENCY.
