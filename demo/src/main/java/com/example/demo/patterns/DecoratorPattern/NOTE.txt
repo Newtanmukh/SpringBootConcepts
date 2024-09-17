@@ -1,0 +1,3 @@
+Decorator pattern is used to prevent class explosion.
+
+Example, we have a pizza class, we can have many toppings on top of it. 
