@@ -1,0 +1,4 @@
+we will use the strategy pattern when
+
+There is one observer and there are observables. everytime some state changes in the observable, it will notify the corresponding
+observer(s).
