@@ -1,0 +1,4 @@
+we will use the strategy pattern when
+
+* there is parent child relationship.
+* some of the childs are using the same code/functionality which is not present into the base
